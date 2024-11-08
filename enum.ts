@@ -1,7 +1,7 @@
 enum enumRoles {
-  ADMIN = 0,
-  GUEST = 1,
-  USER = 2,
+  ADMIN,
+  GUEST,
+  USER,
 }
 
 const enum enumColors {
@@ -20,7 +20,3 @@ const user2: IUser2 = {
   role: enumRoles.ADMIN,
   color: enumColors.pink,
 };
-
-// reverse mapping
-
-console.log(enumRoles[enumRoles.ADMIN]);
