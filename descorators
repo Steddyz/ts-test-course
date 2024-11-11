@@ -13,7 +13,7 @@ class Plane {
     this.id = id;
   }
 
-  @LogMethod
+  // @LogMethod
   getId() {
     return this.id;
   }
