@@ -121,3 +121,30 @@ type O16_User = {
 // чтобы не дублировать код
 
 type O16_User2 = O15_Car & O16_User;
+
+interface O16_User3 extends O15_Car, O16_User {}
+
+// literal
+
+function o18(status: "ok" | "error") {
+  if (status === "ok") {
+  } else if (status === "error") {
+  }
+  return null;
+}
+
+// o18("ok");
+
+// Кастование типов (as unknown as)
+
+// @ts-ignore
+const o18Result: boolean = o18("ok");
+
+const o18Result2: any = o18("ok");
+
+const o18Result3 = o18("ok") as unknown as boolean;
+
+const one = [] as unknown as boolean;
+const two = {} as unknown as boolean;
+(two as unknown as { name: string }).name;
+(one as unknown as ["1", "2", "3"])[1];
