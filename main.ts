@@ -148,3 +148,40 @@ const one = [] as unknown as boolean;
 const two = {} as unknown as boolean;
 (two as unknown as { name: string }).name;
 (one as unknown as ["1", "2", "3"])[1];
+
+// enum
+
+const user: { name: string; age: number; car?: string } = {
+  name: "Steddy",
+  age: 52,
+};
+
+user.age = 522;
+user.car = "red";
+
+enum user2 {
+  name = "Steddy",
+  age = 52,
+}
+// user2.age = 522;      can`t
+
+const enum user3 {
+  name = "Steddy",
+  age = 52,
+}
+
+const steddy = user3.name;
+
+// const enum - очень хорошо оптимизируют
+
+const enum Status {
+  SUCCESS = 200,
+  NOT_FOUND = 404,
+  ERROR = 500,
+}
+
+const enum errorInfo {
+  empty = "Заполните поле",
+  unknown_symbols = "Вы ввели неизвестные символы",
+  min_height = "Слишком короткий пароль",
+}
