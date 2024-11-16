@@ -51,6 +51,8 @@ type O13 = {
   getMoreInfo?: (config: O13_Config) => O13_GetMoreInfo | null;
 };
 
+type O13FunctionData = ReturnType<NonNullable<O13["getMoreInfo"]>>;
+
 // const o13: O13[] = [
 //   {
 //     name: "Steddy",
@@ -185,3 +187,39 @@ const enum errorInfo {
   unknown_symbols = "Вы ввели неизвестные символы",
   min_height = "Слишком короткий пароль",
 }
+
+// utility-types
+
+type UserO19 = Partial<{
+  name: string;
+  age: number;
+  car: boolean;
+}>;
+
+type UserO20 = Required<{
+  name?: string;
+  age?: number;
+  car?: boolean;
+}>;
+
+type TypeTest = {
+  test: string;
+};
+
+const test: Readonly<TypeTest> = {
+  test: "zxczxc",
+};
+
+// test.test = "fsdfsdf";
+
+type UserO21 = Partial<{
+  name: string;
+  age: number;
+  car: boolean;
+}>;
+
+// Достаёт значение(берёт только выбранные нзачения)
+type UserO22 = Pick<UserO21, "name" | "age">;
+
+//  Удаляет значение(берёт всё кроме выбранного нзачения)
+type UserO23 = Omit<UserO21, "car">;
